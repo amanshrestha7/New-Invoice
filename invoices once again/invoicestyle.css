@@ -1,0 +1,886 @@
+@font-face {
+  font-family: aileronsemi;
+  src: url(fonts/aileron-semibold.woff);
+}
+
+@font-face {
+  font-family: myriadbold;
+  src: url(fonts/MyriadPro-Bold.woff);
+}
+
+@font-face {
+  font-family: aileronreg;
+  src: url(fonts/Aileron-Regular.woff);
+}
+
+
+*{
+	margin: 0 auto;
+	padding: 0;
+}
+
+.invoice{
+	width: 100%;
+	text-align: center;
+	margin-top: 28px;
+	float: left;
+}
+
+.upperone{
+	width: 100%;
+}
+
+.leftone p{
+	float: left;
+	font-family: calibri light;
+	font-size: 2.6em;
+	text-align: left;
+	padding-left: 12px;
+	margin-left: 2%;
+}
+
+
+.rightbuttons{
+	float: right;
+	margin-right: 5%;
+}
+
+.rightbuttons button{
+	font-size: 2em;
+	font-family: calibri;
+	color: #fff;
+	padding: 1 0.8em;
+	line-height: 50px;
+	background-color: #85c51f;
+	border: none;
+	border-radius: 4px;
+	margin-left: 2px;
+}
+
+.rightbuttons button:nth-child(1){
+	background-color: transparent;
+	color: grey;
+}
+
+.rightbuttons button:nth-child(1):hover{
+	background-color: transparent;
+	outline: 2px solid lightgrey;
+  outline-offset: 0px;
+  border-radius: 4px;
+}
+
+.rightbuttons button:hover{
+	background-color: #aad662;
+	cursor: pointer;
+}
+
+
+
+
+
+
+/* .fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 6%;
+    margin-left: 8%;
+    float: left;
+    background-image: url('images/file1.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.box .btn{
+	padding: 8% 10%;
+	font-size: 24px;
+	
+}
+ */
+
+.box{
+	width: 100%;
+	float: left;
+	padding-bottom: 30px;
+	border: 1px solid darkgrey;
+	border-radius: 12px;
+	box-shadow: 2px 2px 1px #888888;
+	margin-top: 1.3em;
+}
+
+.wrapper {
+  width: 350px;
+  height: 200px;
+  margin: 5% 4% 4% 8%;
+  background: #fff;
+  border-radius: 5px;
+  clear: both;
+  padding: 0px 0;
+  float: left;
+}
+
+.preview ul {
+  width: 350px;
+  height: 200px;
+  position: relative;
+
+}
+
+.preview ul li {
+  width: 100%;
+  height: 100%;
+  background: #ececec;
+  border-radius: 3px;
+  float: left;
+  list-style: none;
+  margin-bottom: 2px;
+  padding: 2px;
+  margin-right: 2px;
+  position: absolute;
+  top: 0;
+}
+
+.preview ul li:first-child{
+	z-index: 2;
+}
+
+.preview ul li:first-child:hover i{
+	display: block;
+}
+
+.preview ul li i {
+    position: absolute;
+    display: block;
+    width: 200px;
+    height: 30px;
+    background: rgba(255,255,255,0.4);
+    right: calc(50% - 100px);
+    top: calc(50% - 15px);
+    text-align: center;
+    display: none;
+}
+
+.preview ul li:hover{
+	cursor: pointer;
+}
+
+input[type=file] {
+  display: none;
+  visibility: hidden;
+}
+
+input[type=file] + label {
+	background-image: url('images/file1.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  border: 2px dashed #fff;
+  text-align: center;
+  line-height: 80px;
+  border-radius: 5px;
+  position: relative;
+}
+
+input[type="file"]+ label:hover{
+	cursor: pointer;
+}
+
+input[type=file] + label p{
+	margin-top: 15%;
+	color: grey;
+}
+
+input[type=file] + label:hover {
+	//-webkit-transform: scale(0.95);
+}
+
+input[type=file] + label span {
+  position: absolute;
+  display: block;
+  font-size: 9px;
+  font-style: italic;
+  top: 14px;
+  left: calc(50% - 45px);
+}
+
+li.in {
+  -webkit-animation: in 2s forwards;
+          animation: in 2s forwards;
+}
+
+li.out {
+  -webkit-animation: out 1s forwards;
+          animation: out 1s forwards;
+}
+
+@-webkit-keyframes out {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  10% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    visibility: hidden;
+    display: none;
+  }
+}
+
+@keyframes out {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  10% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    visibility: hidden;
+    display: none;
+  }
+}
+/* @-webkit-keyframes in {
+  0% {
+    -webkit-transform: scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    -webkit-transform: scale(1.1) rotate(0deg);
+    transform: scale(1.1) rotate(0deg);
+  }
+  20% {
+    -webkit-transform: rotate(15deg) scale(1.1);
+    transform: rotate(15deg) scale(1.1);
+  }
+  30% {
+    -webkit-transform: rotate(-15deg) scale(1.1);
+    transform: rotate(-15deg) scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1) rotate(0deg);
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+} */
+
+@keyframes in {
+  0% {
+    opacity: 0;
+  }
+  10% {
+  	opacity: 0.2;
+  }
+  20% {
+  	opacity: 0.4;
+  }
+  30% {
+  	opacity: 0.6;
+  }
+  40% {
+  	opacity: 0.8;
+  }
+  50% {
+  	opacity: 0.9;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
+
+
+
+
+
+
+.box .info{
+	float: right;
+	margin-top: 4%;
+	margin-right: 4%;
+	text-align: right;
+}
+
+.box .info input{
+	min-width: 40px;
+	text-align: right;
+	height: 25px;
+	border: none;
+	margin-left: 8px;
+	background-color: transparent;
+	width: auto;
+	font-size: 18px;
+}
+
+#infoname{
+	margin-right: 40px;
+}
+
+/* #selection{
+  border: none;
+  width: 200px;
+  padding-right: 0;
+  color: grey;
+  font-size: 1.3em;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.bills{
+	width: 100%;
+	margin: 3% 4% 2% 8%;
+	color: blue;
+}
+
+
+
+.billsection1{
+	min-width: 20%;
+	float: left;
+	font-size: 18px;
+  clear: both;
+}
+
+.billbox{
+	text-align: left;
+	margin-left: 0px;
+	height: 140px;
+	width: 200px;
+	border: 2px dashed grey;
+	font-size: 1.3em;
+	text-align: center;
+	position: relative;
+}
+
+.billbox p{
+	color: black;
+	margin-top: 50px;
+}
+
+.billbox i{
+	color: grey;
+}
+
+.billbox:hover{
+	background-color: rgba(105, 105, 255, 0.2);
+	cursor: pointer;
+}
+
+#addclient{
+	position: absolute;
+	margin-top: 0px;
+	top:30px;
+	left: 0px;
+	display: none;
+	font-size: 18px;
+}
+
+
+#addclient input{
+	min-width: 40px;
+	text-align: center;
+	min-height: 25px;
+  height: auto;
+	border: none;
+  margin-left: 0px;
+	background-color: transparent;
+	width: 195px !important;
+  overflow:hidden;
+  padding:4px;
+}
+
+
+
+#myDropdown{
+	margin-top: 140px;
+	font-size: 14px;
+	display: none;
+}
+
+
+
+.add-new-class{
+  border:none;
+  text-align: left;
+  background-color: yellow;
+}
+
+
+
+
+
+
+
+
+.billsection2{
+	min-width: 20%;
+	margin-left: 3%;
+	float: left;
+	font-size: 18px;
+}
+
+.date{
+	background-color: transparent;
+	border: 1px solid;
+	border-radius: 4px;
+	width: 120px;
+}
+
+
+
+
+
+.billsection3{
+	min-width: 20%;
+	float: left;
+	font-size: 18px;
+	margin-left: 3%;
+}
+
+
+#invoicenum{
+	width: 100px;
+	color: black;
+	background-color: transparent;
+	border: none;
+}
+
+
+
+.billsection4{
+	min-width: 20%;
+	float: right;
+	margin: 0 6%;
+	margin-left: 3%;
+	font-size: 18px;
+}
+
+
+.amount{
+	color: black;
+	font-size: 32px;
+}
+
+@media screen and (max-width: 991px){
+  .billsection4{
+    float: left;
+  }
+}
+
+
+
+
+
+
+.optext{
+  margin-top: 5%;
+  margin-left: 10%;
+  width: 80%;
+  float: left;
+}
+
+.optext textarea{
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  //min-height: 120px;
+}
+
+.optext textarea:hover{
+  border: 1px solid grey;
+  background-color: rgba(0, 0, 255, 0.1);
+  border-radius: 8px;
+}
+
+.optext textarea:focus{
+  background-color: rgba(0, 0, 255, 0.1);
+}
+
+
+
+
+
+
+
+
+hr{
+  margin-top: 5%;
+	width: 86%;
+	margin-left: 7%;
+	height: 4px;
+	float: left;
+	background-color: #663399;
+}
+
+
+
+
+
+
+
+
+
+
+
+.container .details{
+  margin-top: 2%;
+  margin-left: 7%;
+  width: 86%;
+  float: left;
+  clear: both;
+}
+
+.container .details{
+  text-align: right;
+}
+
+.details .description{
+  float: left;
+  width: 50%;
+  text-align: left;
+}
+
+
+
+
+
+
+.details .rate{
+  float: left;
+  width: 15%;
+  margin-left: 15%;
+}
+
+
+.details .qty{
+  float: left;
+  width: 10%;
+}
+
+
+.details .total{
+  float: left;
+  width: 10%;
+}
+
+
+
+
+
+
+.details .item-detail{
+  width: 100%;
+  float: left;
+  //display: none;
+}
+
+.details .item-detail input{
+  background-color: transparent;
+  border: none;
+}
+
+.details .descript-item{
+  width: 50%;
+  clear: both;
+  float: left;
+  padding-bottom: 2%;
+  text-align: left;
+  line-height: 26px;
+}
+
+.details .descript-item input{
+  width: 80%;
+}
+
+
+#itemdesc{
+  margin: 8px 0px 16px 0px;
+}
+
+
+
+.item-detail .descript-rate{
+  width: 15%;
+  margin-left: 15%;
+  float: left;
+}
+
+.item-detail .descript-rate input{
+  width: 50%;
+  text-align: right;
+}
+
+
+
+.item-detail .descript-qty{
+  width: 10%;
+  float: left;
+}
+
+.item-detail .descript-qty input{
+  width: 50%;
+  text-align: right;
+}
+
+
+
+.item-detail .descript-total{
+  width: 10%;
+  float: left;
+}
+
+.item-detail .descript-total input{
+  width: 50%;
+  text-align: right;
+}
+
+
+#removeit{
+  margin-bottom: 12px;
+  width: 7%;
+  float: left;
+  margin-left: 93%;
+  text-align: right;
+  display: none;
+}
+
+#removeit:hover{
+  cursor: pointer;
+  color: red;
+}
+
+
+
+#smallhr{
+  width: 100%;
+  margin-top: 0;
+  margin-left: 0;
+  height: 2px;
+  float: left;
+  clear: both;
+  background-color: black;
+  display: none;
+}
+
+
+
+
+
+
+.details .addline{
+  //margin-left: 10px;
+  width: 100%;
+  padding-top: 8px;
+  padding-bottom: 4px;
+  font-size: 20px;
+  text-align: center;
+  outline: 2px dashed grey;
+  outline-offset: 1px;
+  clear: both;
+}
+
+.details .addline:hover{
+  background-color: rgba(0, 0, 200, 0.1);
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+.details .lastdiv{
+  width: 40%;
+  margin-top: 5%;
+  float: right;
+  padding: 4px 0;
+}
+
+.details .lastdiv .last{
+  width: 100%;
+  text-align: right;
+}
+
+.last .subtotal{
+  width: 100%;
+  float: left;
+  clear: both;
+}
+
+.last .subtotal p{
+  float: left;
+  text-align: right;
+}
+
+.last .subtotal input{
+  float: right;
+  max-width: 120px;
+  text-align: right;
+}
+
+.last .discount{
+  width: 100%;
+  float: left;
+  clear: both;
+}
+
+.last .discount p{
+  float: left;
+  text-align: right;
+}
+
+.last .discount input{
+  float: right;
+  max-width: 120px;
+  text-align: right;
+}
+
+.last .tax{
+  width: 100%;
+  float: left;
+  clear: both;
+}
+
+.last .tax p{
+  float: left;
+  text-align: right;
+}
+
+.last .tax input{
+  max-width: 120px;
+  float: right;
+  text-align: right;
+}
+
+
+
+
+
+
+.lasthr{
+  width: 150%;
+  height: 1px;
+  background-color: black;
+  float: right;
+}
+
+.doublehr{
+  margin: -25px 0 12px 0;
+}
+
+
+
+
+
+
+.last .total{
+  width: 100%;
+  clear: both;
+  float: right;
+}
+
+.last .total p{
+  float: left;
+  text-align: right;
+}
+
+.last .total input{
+  max-width: 120px;
+  float: right;
+  text-align: right;
+}
+
+.last .amounts{
+  width: 100%;
+  clear: both;
+  float: right;
+}
+
+.last .amounts p{
+  float: left;
+  text-align: right;
+}
+
+.last .amounts input{
+  max-width: 120px;
+  float: right;
+  text-align: right;
+}
+
+
+.last .amount-due{
+  width: 100%;
+  clear: both;
+  float: right;
+}
+
+.last .amount-due p{
+  float: left;
+  text-align: right;
+}
+
+.last .amount-due input{
+  max-width: 120px;
+  float: right;
+  text-align: right;
+}
+
+
+
+.last .request-deposit{
+  width: 100%;
+  clear: both;
+  float: right;
+}
+
+.last .request-deposit p{
+  float: left;
+  text-align: right;
+}
+
+.last .request-deposit input{
+  max-width: 120px;
+  float: right;
+  text-align: right;
+}
+
+
